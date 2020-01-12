@@ -19,7 +19,7 @@
     });
     var infowindow = new google.maps.InfoWindow();
     var marker, i;
-  for (i = 0; i < 8; i++) {
+  for (i = 0; i < events.length; i++) {
     geocoder.geocode({ 'address': events[i].e_address }, function (results, status) {
       if (status == 'OK') {
         marker = new google.maps.Marker({
@@ -39,6 +39,8 @@
       }
     });
   }
+  
+
   </script>
 </body>
 <%-include("./HeaderFooter/footer")%>
