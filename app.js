@@ -1,3 +1,4 @@
+const port = 3000;
 var express     = require("express"),
     app         = express();
 
@@ -14,8 +15,6 @@ app.use("/", homeRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/events", eventsRoute);
-
-const port = 3000
 
 app.get('*', function (req, res) {
     res.send("The page is not avalible");
@@ -52,7 +51,4 @@ con.connect(function (err) {
         console.log(result)
     })
 });
-
-
-
 
