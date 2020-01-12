@@ -1,3 +1,4 @@
+const port = 3000;
 var express     = require("express"),
     app         = express();
 
@@ -15,10 +16,9 @@ app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/events", eventsRoute);
 
+
 app.get('*', function (req, res) {
     res.send("The page is not avalible");
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("The Server Has Started!");
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
