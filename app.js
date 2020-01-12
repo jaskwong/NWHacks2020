@@ -40,17 +40,19 @@ var con = mysql.createConnection({
 con.connect(function (err) {
     if (err) throw err;
     console.log("connected")
-});
-
-con.connect(function (err) {
+    scriptarr.pop();
     scriptarr.forEach(s => {
         con.query(s, function (err, result) {
             if (err) throw err;
-            console.log("line run");
         })
     });
 
-})
+    var s = "SELECT * FROM organization"
+    con.query(s, (err, result) => {
+        console.log(result)
+    })
+});
+
 
 
 
