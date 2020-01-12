@@ -36,6 +36,32 @@ app.get('*', function (req, res) {
     res.send("The page is not avalible");
 });
 
-app.listen(port, process.env.IP, function(){
-    console.log("The Server Has Started!");
+app.listen(port,process.env.IP, ()=> console.log("Server is live now"));
+
+
+var fs = require('fs');
+var script = fs.readFileSync('./public/db.sql').toString();
+const scriptarr = script.split(';')
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: 'localhost',
+    user: "root",
+    password: 'nwhacks2020',
+    database: 'nwhacks2020'
 });
+
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("connected")
+    scriptarr.pop();
+    scriptarr.forEach(s => {
+        con.query(s, function (err, result) {
+            if (err) throw err;
+        })
+    });
+    con.end();
+});
+
+
