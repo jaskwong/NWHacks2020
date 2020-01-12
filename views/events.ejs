@@ -2,10 +2,11 @@
 <h1>Events</h1>
 
 <body>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap"
-    type="text/javascript"></script>
-  <scipt src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap" ></scipt>
-
+  <script>
+  alert(API_KEY)
+    src="https://maps.googleapis.com/maps/api/js?key=" + API_KEY + "&callback=initMap"
+      type="text/javascript"></script>
+    <script> src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key="+ API_KEY + "&callback=initMap" </script>
   <div id="map" style="width: 100%; height: 80%;"></div>
   <script type="text/javascript">
     var geocoder = new google.maps.Geocoder();
