@@ -15,13 +15,13 @@ app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/events", eventsRoute);
 
+const port = 3000
+
 app.get('*', function (req, res) {
     res.send("The page is not avalible");
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("The Server Has Started!");
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 var mysql = require('mysql');
 
@@ -45,18 +45,9 @@ con.connect(function (err) {
     })
 });
 
-// var execsql = require('execsql'),
-//     dbConfig = {
-//         host: 'localhost',
-//         user: 'root',
-//         password: 'nwhacks2020',
-//         database: 'nwhacks2020'
-//     },
-//     sql = 'use db_cam;',
-//     sqlFile = __dirname + '/public/db.sql';
-// execsql.config(dbConfig)
-//     .exec(sql)
-//     .execFile(sqlFile, function (err, results) {
-//         if (err) throw err;
-//         console.log("ran script");
-//     }).end();
+var fs = require('fs');
+var script = fs.readFileSync('./public/db.sql').toString();
+var scriptarr = script.split(';')
+console.log(scriptarr[1])
+
+
