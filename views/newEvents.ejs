@@ -1,0 +1,32 @@
+<%-include("./HeaderFooter/header")%>
+<!-- <form action="/register" method="post"> -->
+    <div class="container ">
+        <div class= "row justify-content-center">
+          <p class="text-uppercase pull-center"> EVENT REGISTRATION:</p>	
+    
+          <div class= col-md-12>
+            <form role="form" method="post" action="register.php">				
+              <div class="form-group" >
+                 <input type="text" name="Event Name" id="Event Name" class="form-control input-lg" placeholder="Event Name">
+             </div>
+    
+             <div class="form-group" >
+                 <input type="text" name="Event Address" id="Event Address" class="form-control input-lg" placeholder="Event Address">
+             </div>
+             
+             <div class="form-group">
+                 <input type="text" name="Company Name" id="Company Name" class="form-control input-lg" placeholder="Company Name">
+             </div>
+    
+             <!-- <input type="datetime-local" id="meeting-time"
+                 name="meeting-time" value="2020-01-12T13:00"
+                 min="2020-01-12T13:00" max="2020-12-31T00:00"> -->
+    
+              <div class = "row justify-content-center">
+                     <input type="submit" class="btn btn-lg btn-primary   value="Register">
+              </div>
+           </form>
+          </div>
+    </div>
+<!-- </form> -->
+<%-include("./HeaderFooter/footer")%>

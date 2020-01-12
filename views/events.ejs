@@ -8,26 +8,17 @@
 
   <div id="map" style="width: 100%; height: 80%;"></div>
   <script type="text/javascript">
-
     var geocoder = new google.maps.Geocoder();
-
     var result = <%- res %>
     var resultarr = result.split("SEP")
     events = eval(resultarr[0])
     orgs = eval(resultarr[1])
-
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: new google.maps.LatLng(49.265911, -123.110143)
     });
-
-
     var infowindow = new google.maps.InfoWindow();
-
     var marker, i;
-
-
   for (i = 0; i < 8; i++) {
     geocoder.geocode({ 'address': events[i].e_address }, function (results, status) {
       if (status == 'OK') {
@@ -47,7 +38,6 @@
         })(marker, i));
       }
     });
-
   }
   </script>
 </body>
