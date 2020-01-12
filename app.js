@@ -45,10 +45,5 @@ con.connect(function (err) {
             if (err) throw err;
         })
     });
-
-    var s = "SELECT * FROM organization"
-    con.query(s, (err, result) => {
-        console.log(result)
-    })
 });
 
