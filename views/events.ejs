@@ -1,48 +1,54 @@
 <%-include("./HeaderFooter/header")%>
 <h1>Events</h1>
+
 <body>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap" 
-            type="text/javascript"></script>
-    <div id="map" style="width: 100%; height: 80%;"></div>
-    <script type="text/javascript">
-    
-      var locations = [
-        ['Canadian Red Cross', 49.265911, -123.110143, 3],
-        ['Fair Haven Homes Society', 49.21525, -123.005192, 5],
-        ['West End Seniors Network', 49.287324, -123.132743, 2],
-        ['Yaletown House Society', 49.275349, -123.119226, 10],
-        ['A.S.K Friendship Society', 49.233904, -123.157112, 3],
-        ['The New Vista Society', 49.224329, -122.945706, 1],
-        ['Lower Mainland Christmas Bureau', 49.28302, -123.066322, 4],
-        ['Seniors Services Society', 49.202368, -122.911647, 1]
-      ];
-  
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: new google.maps.LatLng(locations[0][1], locations[0][2])
-      });
-  
-      var infowindow = new google.maps.InfoWindow();
-  
-      var marker, i;
-  
-      for (i = 0; i < locations.length; i++) {  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap"
+    type="text/javascript"></script>
+  <scipt src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap" ></scipt>
+
+  <div id="map" style="width: 100%; height: 80%;"></div>
+  <script type="text/javascript">
+
+    var geocoder = new google.maps.Geocoder();
+
+    var result = <%- res %>
+    var resultarr = result.split("SEP")
+    events = eval(resultarr[0])
+    orgs = eval(resultarr[1])
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(49.265911, -123.110143)
+    });
+
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+
+  for (i = 0; i < 8; i++) {
+    geocoder.geocode({ 'address': events[i].e_address }, function (results, status) {
+      if (status == 'OK') {
         marker = new google.maps.Marker({
           animation: google.maps.Animation.DROP,
-          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          position: results[0].geometry.location,
           map: map
-        });
-  
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent("<p>" + locations[i][0] + "<br />" +
-                                 "Volunteers Needed: " + locations[i][3] + "<br /" +
-                                 "</p>" + '<button onclick="quickReg()">Attend!</button>' + " "
-                                 + '<button onclick="myFunction()">More info</button>');
+        })
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+          return function () {
+            infowindow.setContent("<p>" + orgs[0].o_name + "<br />" +
+              "Volunteers Needed: " + events[0].e_numppl + "<br /" +
+              "</p>" + '<button onclick="quickReg()">Attend!</button>' + " "
+              + '<button onclick="myFunction()">More info</button>');
             infowindow.open(map, marker);
           }
         })(marker, i));
       }
-    </script>
-  </body>
+    });
+
+  }
+  </script>
+</body>
 <%-include("./HeaderFooter/footer")%>
