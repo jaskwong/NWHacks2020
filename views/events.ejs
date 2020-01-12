@@ -12,13 +12,9 @@
     var geocoder = new google.maps.Geocoder();
 
     var result = <%- res %>
-    alert(result)
     var resultarr = result.split("SEP")
     events = eval(resultarr[0])
     orgs = eval(resultarr[1])
-
-    alert(orgs[0].o_name)
-    alert(events[0].e_numppl)
 
 
     var map = new google.maps.Map(document.getElementById('map'), {

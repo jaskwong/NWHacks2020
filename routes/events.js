@@ -9,21 +9,6 @@ var con = mysql.createConnection({
     database: 'nwhacks2020'
 });
 
-// var events;
-
-// con.connect(function (err) {
-//     var s = "SELECT * FROM events"
-//     con.query(s, function (err, res) {
-//         events = JSON.stringify(res)
-//         console.log(events)
-//         router.get('/', function (req, res) {
-//             res.render('events', {
-//                 res: events
-//             })
-//         });
-//     })
-// })
-
 var events;
 var orgs;
 var result;
@@ -45,31 +30,5 @@ con.connect(function (err) {
         })
     })
 })
-
-// con.connect(function (err) {
-//     var s = "SELECT * FROM events"
-//     con.query(s, function (err, res) {
-//         events = JSON.stringify(res)
-//         console.log(events)
-//         var s2 = "SELECT organization.o_name FROM events, organization WHERE events.o_usnm = organization.o_usnm"
-//         con.query(s2, function (err2, res2) {
-//             orgs = JSON.stringify(res2)
-//             console.log(orgs)
-//             result = {event: events, orgs: orgs}
-//             console.log("result is: " + JSON.stringify(result))
-//             router.get('/', function (req, res) {
-//                 res.render('events', {
-//                     res: result
-//                 })
-//             })
-//         });
-//     })
-// })
-
-
-
-// router.get("/", function(req, res){
-//     res.render("events");
-// });
 
 module.exports = router;
