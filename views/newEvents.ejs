@@ -5,17 +5,25 @@
           <p class="text-uppercase pull-center"> EVENT REGISTRATION:</p>	
     
           <div class= col-md-12>
-            <form role="form" method="post" action="register.php">				
+            <form role="form" method="post" action="/events/new">				
               <div class="form-group" >
-                 <input type="text" name="Event Name" id="Event Name" class="form-control input-lg" placeholder="Event Name">
+                 <input type="text" name="Event_Name" id="Event Name" class="form-control input-lg" placeholder="Event Name">
              </div>
     
              <div class="form-group" >
-                 <input type="text" name="Event Address" id="Event Address" class="form-control input-lg" placeholder="Event Address">
+                 <input type="text" name="Event_Address" id="Event Address" class="form-control input-lg" placeholder="Event Address">
              </div>
+
+             <div class="form-group" >
+                <input type="text" name="Event_Time" id="Event Address" class="form-control input-lg" placeholder="Event time (YYYY-MM-DD hh:mm:ss)">
+            </div>
+
+            <div class="form-group" >
+                <input type="text" name="Event_Ppl" id="Volunteers Required" class="form-control input-lg" placeholder="Volunteers Required">
+            </div>
              
              <div class="form-group">
-                 <input type="text" name="Company Name" id="Company Name" class="form-control input-lg" placeholder="Company Name">
+                 <input type="text" name="Company_Usnm" id="Company Username" class="form-control input-lg" placeholder="Company Name">
              </div>
     
              <!-- <input type="datetime-local" id="meeting-time"
