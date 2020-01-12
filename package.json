@@ -20,6 +20,10 @@
     "@mysql/xdevapi": "8.0.18",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "file-system": "^2.2.2"
+    "express-session": "^1.17.0",
+    "file-system": "^2.2.2",
+    "mysql": "^2.17.1",
+    "normalize-port": "^1.0.0",
+    "passport": "^0.4.1"
   }
 }
