@@ -4,7 +4,8 @@ var express     = require("express"),
 
 var homeRoute		= require("./routes/home"),
     registerRoute	= require("./routes/register"),
-    loginRoute      = require("./routes/login"),
+    loginVolunteer  = require("./routes/loginVolunteer"),
+    loginOrg      = require("./routes/loginOrg"),
     eventsRoute     = require("./routes/events")
 
 
@@ -13,7 +14,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.use("/", homeRoute);
 app.use("/register", registerRoute);
-app.use("/login", loginRoute);
+app.use("/loginVolunteer", loginVolunteer);
+app.use("/loginOrg", loginOrg);
 app.use("/events", eventsRoute);
 
 

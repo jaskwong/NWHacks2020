@@ -1,0 +1,19 @@
+body{
+	background: url(https://images.unsplash.com/photo-1505864681725-48344595127c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80);
+	background-size: cover;
+	background-position: center;
+	font-family: lato;
+	height: 100%;
+}
+
+ html{
+	height:100%;
+}
+
+.container{
+	display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+    height: 100%;
+}
