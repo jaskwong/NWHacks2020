@@ -1,5 +1,6 @@
 require('dotenv').config()
-const API_KEY = process.env.API_KEY
+var apiKEY = process.env.API_KEY
+
 const normalizePort = require('normalize-port');
 var express = require("express"),
     bodyParser = require("body-parser"),
@@ -33,6 +34,7 @@ app.use("/volunteer", volunteerRoute);
 app.use("/organization", organizationRoute);
 app.use("/events", eventsRoute);
 
+ 
 app.get('*', function (req, res) {
     res.send("The page is not avalible");
 });
@@ -62,5 +64,3 @@ con.connect(function (err) {
         })
     });
 });
-
-
