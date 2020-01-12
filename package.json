@@ -1,0 +1,23 @@
+{
+  "name": "nwhacks2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaskwong/NWHacks2020.git"
+  },
+  "author": "Leo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaskwong/NWHacks2020/issues"
+  },
+  "homepage": "https://github.com/jaskwong/NWHacks2020#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
