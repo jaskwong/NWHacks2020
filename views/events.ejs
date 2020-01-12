@@ -4,17 +4,15 @@
 <body>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap"
     type="text/javascript"></script>
-  <scipt
-    src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap">
-  </scipt>
+  <scipt src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyD6LseGbTYf_dHEEYCQ9OhPeebMRiyFwgs&callback=initMap" ></scipt>
 
   <div id="map" style="width: 100%; height: 80%;"></div>
   <script type="text/javascript">
 
     var geocoder = new google.maps.Geocoder();
 
-    var result = <% - res %>
-      alert(result)
+    var result = <%- res %>
+    alert(result)
     var resultarr = result.split("SEP")
     events = eval(resultarr[0])
     orgs = eval(resultarr[1])
@@ -34,27 +32,27 @@
     var marker, i;
 
 
-    for (i = 0; i < 8; i++) {
-      geocoder.geocode({ 'address': events[i].e_address }, function (results, status) {
-        if (status == 'OK') {
-          marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            position: results[0].geometry.location,
-            map: map
-          })
-          google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            return function () {
-              infowindow.setContent("<p>" + orgs[0].o_name + "<br />" +
-                "Volunteers Needed: " + events[0].e_numppl + "<br /" +
-                "</p>" + '<button onclick="quickReg()">Attend!</button>' + " "
-                + '<button onclick="myFunction()">More info</button>');
-              infowindow.open(map, marker);
-            }
-          })(marker, i));
-        }
-      });
+  for (i = 0; i < 8; i++) {
+    geocoder.geocode({ 'address': events[i].e_address }, function (results, status) {
+      if (status == 'OK') {
+        marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
+          position: results[0].geometry.location,
+          map: map
+        })
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+          return function () {
+            infowindow.setContent("<p>" + orgs[0].o_name + "<br />" +
+              "Volunteers Needed: " + events[0].e_numppl + "<br /" +
+              "</p>" + '<button onclick="quickReg()">Attend!</button>' + " "
+              + '<button onclick="myFunction()">More info</button>');
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
+    });
 
-    }
+  }
   </script>
 </body>
 <%-include("./HeaderFooter/footer")%>
