@@ -19,7 +19,6 @@ CREATE TABLE organization (
 
 CREATE TABLE events (
     e_id int PRIMARY KEY,
-    e_name VARCHAR(250),
     e_address VARCHAR(100),
     e_time TIMESTAMP,
     e_numppl int,
@@ -58,5 +57,4 @@ INSERT INTO organization VALUES ("TNVS", "pswd", "The New Vista Society", "7550 
 INSERT INTO organization VALUES ("LMCB", "pswd", "Lower Mainland Christmas Bureau", "1870 Pandora st Vancouver, BC");
 INSERT INTO organization VALUES ("SSS", "pswd", "Seniors Services Society", "750 Carnarvon Street New Westminster, BC V3M 1E7");
 
-
-
+INSERT INTO events VALUES (1, "209 W 6th Ave, Vancouver, BC V5Y 1K7", TIMESTAMP ('2020-01-16 08:00:00'), 3, "CRC");

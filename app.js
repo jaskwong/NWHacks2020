@@ -1,11 +1,11 @@
 const port = 3000;
-var express     = require("express"),
-    app         = express();
+var express = require("express"),
+    app = express();
 
-var homeRoute		= require("./routes/home"),
-    registerRoute	= require("./routes/register"),
-    loginRoute      = require("./routes/login"),
-    eventsRoute     = require("./routes/events")
+var homeRoute = require("./routes/home"),
+    registerRoute = require("./routes/register"),
+    loginRoute = require("./routes/login"),
+    eventsRoute = require("./routes/events")
 
 
 app.set('view engine', 'ejs');
@@ -45,7 +45,18 @@ con.connect(function (err) {
             if (err) throw err;
         })
     });
-    con.end();
 });
 
 
+app.get('/events', function (req, res) {
+    if (err) throw err;
+    var result = con.connect(function (err) {
+        console.log("connected again")
+        var s = "SELECT * FROM organization"
+        con.query(s, (err, result) => {
+            if (err) throw err;
+            return result;
+        });
+    });
+    res.render('index', { res: result })
+});
