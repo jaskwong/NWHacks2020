@@ -22,3 +22,41 @@ app.get('*', function (req, res) {
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The Server Has Started!");
 });
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: 'localhost',
+    user: "root",
+    password: 'nwhacks2020'
+});
+
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var s = "DROP DATABASE nwhacks2020";
+    con.query(s, function (err, result) {
+        console.log("deleted");
+    })
+    var s = "CREATE DATABASE nwhacks2020";
+    con.query(s, function (err, result) {
+        if (err) throw err;
+        console.log("created");
+    })
+});
+
+// var execsql = require('execsql'),
+//     dbConfig = {
+//         host: 'localhost',
+//         user: 'root',
+//         password: 'nwhacks2020',
+//         database: 'nwhacks2020'
+//     },
+//     sql = 'use db_cam;',
+//     sqlFile = __dirname + '/public/db.sql';
+// execsql.config(dbConfig)
+//     .exec(sql)
+//     .execFile(sqlFile, function (err, results) {
+//         if (err) throw err;
+//         console.log("ran script");
+//     }).end();
