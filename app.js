@@ -23,31 +23,34 @@ app.get('*', function (req, res) {
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
+
+var fs = require('fs');
+var script = fs.readFileSync('./public/db.sql').toString();
+const scriptarr = script.split(';')
+
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
     host: 'localhost',
     user: "root",
-    password: 'nwhacks2020'
+    password: 'nwhacks2020',
+    database: 'nwhacks2020'
 });
 
 con.connect(function (err) {
     if (err) throw err;
-    console.log("Connected!");
-    var s = "DROP DATABASE nwhacks2020";
-    con.query(s, function (err, result) {
-        console.log("deleted");
-    })
-    var s = "CREATE DATABASE nwhacks2020";
-    con.query(s, function (err, result) {
-        if (err) throw err;
-        console.log("created");
-    })
+    console.log("connected")
 });
 
-var fs = require('fs');
-var script = fs.readFileSync('./public/db.sql').toString();
-var scriptarr = script.split(';')
-console.log(scriptarr[1])
+con.connect(function (err) {
+    scriptarr.forEach(s => {
+        con.query(s, function (err, result) {
+            if (err) throw err;
+            console.log("line run");
+        })
+    });
+
+})
+
 
 

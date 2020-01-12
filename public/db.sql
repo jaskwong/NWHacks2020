@@ -1,3 +1,8 @@
+drop table attending;
+drop table events;
+drop table organization;
+drop table volunteer;
+
 CREATE TABLE volunteer (
     v_usnm VARCHAR(25) PRIMARY KEY,
     v_pswd VARCHAR(20),
@@ -6,31 +11,34 @@ CREATE TABLE volunteer (
 );
 
 CREATE TABLE organization (
-    o_usnm VARCHAR(25),
+    o_usnm VARCHAR(25) PRIMARY KEY,
     o_pswd VARCHAR(20),
     o_name VARCHAR(250),
     o_address VARCHAR(100)
 );
 
-CREATE TABLE event (
+CREATE TABLE events (
+    e_id int PRIMARY KEY,
     e_name VARCHAR(250),
     e_address VARCHAR(100),
     e_time TIMESTAMP,
+    e_numppl int,
     o_usnm VARCHAR(25),
-    foreign key (o_usnm) references organization,
-    PRIMARY KEY (o_usnm, e_name)
+    foreign key (o_usnm)
+        references organization(o_usnm)
 );
 
 CREATE TABLE attending (
     v_usnm VARCHAR(25),
-    o_usnm VARCHAR(25),
-    e_name VARCHAR(250),
-    foreign key (o_usnm) references organization,
-    foreign key (v_usnm) references volunteer,
-    foreign key (e_name) references event,
-    PRIMARY KEY (o_usnm, e_name, v_usnm);
-
+    e_id int,
+    PRIMARY KEY (e_id, v_usnm),
+    foreign key (v_usnm)
+        references volunteer(v_usnm),
+    foreign key (e_id)
+        references events(e_id)
+        
 );
+
 
 INSERT INTO volunteer VALUES ("a", "pswd", "Jasmine", 19);
 INSERT INTO volunteer VALUES ("b", "pswd", "Leo", 19);
