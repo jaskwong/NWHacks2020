@@ -58,3 +58,10 @@ INSERT INTO organization VALUES ("LMCB", "pswd", "Lower Mainland Christmas Burea
 INSERT INTO organization VALUES ("SSS", "pswd", "Seniors Services Society", "750 Carnarvon Street New Westminster, BC V3M 1E7");
 
 INSERT INTO events VALUES (1, "209 W 6th Ave, Vancouver, BC V5Y 1K7", TIMESTAMP ('2020-01-16 08:00:00'), 3, "CRC");
+INSERT INTO events VALUES (2, "7557 Sussex Ave Burnaby, BC V5S 1G7", TIMESTAMP ('2020-01-16 08:00:00'), 3, "FHHS");
+INSERT INTO events VALUES (3, "Barclay Manor 1447 Barclay Street Vancouver, BC V6G 1J6", TIMESTAMP ('2020-01-16 08:00:00'), 3, "WESN");
+INSERT INTO events VALUES (4, "Yaletown House 1099 Cambie St. Vancouver, BC V6B 5A8", TIMESTAMP ('2020-01-16 08:00:00'), 3, "YHS");
+INSERT INTO events VALUES (5, "2177 West 42nd Ave Vancouver, BC", TIMESTAMP ('2020-01-16 08:00:00'), 3, "ASKFS");
+INSERT INTO events VALUES (6, "7550 Rosewood Street Burnaby, BC V5E 3Z3", TIMESTAMP ('2020-01-16 08:00:00'), 3, "TNVS");
+INSERT INTO events VALUES (7, "1870 Pandora st Vancouver, BC", TIMESTAMP ('2020-01-16 08:00:00'), 3, "LMCB");
+INSERT INTO events VALUES (8, "750 Carnarvon Street New Westminster, BC V3M 1E7", TIMESTAMP ('2020-01-16 08:00:00'), 3, "SSS");
