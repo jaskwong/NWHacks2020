@@ -6,9 +6,9 @@ var express     = require("express"),
 const normalizePort = require('normalize-port');
 
 var homeRoute		= require("./routes/home"),
-    registerRoute	= require("./routes/register"),
-    loginRoute      = require("./routes/login"),
-    eventsRoute     = require("./routes/events");
+    volunteerRoute	= require("./routes/volunteer"),
+    organizationRoute  = require("./routes/organization"),
+    eventsRoute     = require("./routes/events")
 
 var port = normalizePort(process.env.PORT || '3000');
 
@@ -28,8 +28,8 @@ app.use(passport.session());
 
 
 app.use("/", homeRoute);
-app.use("/register", registerRoute);
-app.use("/login", loginRoute);
+app.use("/volunteer", volunteerRoute);
+app.use("/organization", organizationRoute);
 app.use("/events", eventsRoute);
 
 app.get('*', function (req, res) {
@@ -39,29 +39,29 @@ app.get('*', function (req, res) {
 app.listen(port,process.env.IP, ()=> console.log("Server is live now"));
 
 
-var fs = require('fs');
-var script = fs.readFileSync('./public/db.sql').toString();
-const scriptarr = script.split(';')
+// var fs = require('fs');
+// var script = fs.readFileSync('./public/db.sql').toString();
+// const scriptarr = script.split(';')
 
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-var con = mysql.createConnection({
-    host: 'localhost',
-    user: "root",
-    password: 'nwhacks2020',
-    database: 'nwhacks2020'
-});
+// var con = mysql.createConnection({
+//     host: 'localhost',
+//     user: "root",
+//     password: 'nwhacks2020',
+//     database: 'nwhacks2020'
+// });
 
-con.connect(function (err) {
-    if (err) throw err;
-    console.log("connected")
-    scriptarr.pop();
-    scriptarr.forEach(s => {
-        con.query(s, function (err, result) {
-            if (err) throw err;
-        })
-    });
-    con.end();
-});
+// con.connect(function (err) {
+//     if (err) throw err;
+//     console.log("connected")
+//     scriptarr.pop();
+//     scriptarr.forEach(s => {
+//         con.query(s, function (err, result) {
+//             if (err) throw err;
+//         })
+//     });
+//     con.end();
+// });
 
 
