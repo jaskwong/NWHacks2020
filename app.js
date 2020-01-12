@@ -4,11 +4,10 @@ var express = require("express"),
     passport = require("passport"),
     app = express();
 
-var homeRoute = require("./routes/home"),
-    registerRoute = require("./routes/register"),
-    loginRoute = require("./routes/login"),
-    eventsRoute = require("./routes/events")
-
+var homeRoute		= require("./routes/home"),
+    volunteerRoute	= require("./routes/volunteer"),
+    organizationRoute  = require("./routes/organization"),
+    eventsRoute     = require("./routes/events")
 
 var port = normalizePort(process.env.PORT || '3000');
 
@@ -28,8 +27,8 @@ app.use(passport.session());
 
 
 app.use("/", homeRoute);
-app.use("/register", registerRoute);
-app.use("/login", loginRoute);
+app.use("/volunteer", volunteerRoute);
+app.use("/organization", organizationRoute);
 app.use("/events", eventsRoute);
 
 app.get('*', function (req, res) {
@@ -37,7 +36,6 @@ app.get('*', function (req, res) {
 });
 
 app.listen(port, process.env.IP, () => console.log("Server is live now"));
-
 
 var fs = require('fs');
 var script = fs.readFileSync('./public/db.sql').toString();
@@ -62,3 +60,5 @@ con.connect(function (err) {
         })
     });
 });
+
+
